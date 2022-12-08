@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option java_package = "com.employee.stub";
+
+service employee {
+   rpc addEmployee (addRequest) returns (addResponse);			
+   rpc addMultipleEmployees (stream addMulRequest) returns (addMulResponse);		
+   rpc getMutilpleEmployee (getMulRequest) returns (stream getMulResponse);			
+   rpc addAndGetMulEmployee (stream addAndGetMulRequest) returns (stream addAndGetMulResponse);		
+}
+
+message addRequest {
+   int32 id = 1;
+   string name = 2;
+   double salary = 3;
+}
+
+message addResponse {
+   int32 id = 1;
+}
+
+message addMulRequest{
+ 	int32 id = 1;
+   string name = 2;
+   double salary = 3;
+}
+
+message addMulResponse{
+	string response = 1;
+}
+
+message getMulRequest{
+	string name = 1;
+}
+
+message getMulResponse{
+	int32 id = 1;
+   string name = 2;
+   double salary = 3;
+}
+
+message addAndGetMulRequest{
+	int32 id = 1;
+   string name = 2;
+   double salary = 3;
+}
+
+message addAndGetMulResponse{
+	int32 id = 1;
+   string name = 2;
+   double salary = 3;
+}
+
